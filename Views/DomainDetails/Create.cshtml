@@ -1,0 +1,80 @@
+@model SoftwareSubscriptionApp.Models.DomainDetails
+
+@{
+    ViewData["Title"] = "Add Domain Details";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="Create" method="post" class="needs-validation" novalidate>
+        <!-- Domain Name -->
+        <div class="mb-3">
+            <label asp-for="DomainName" class="form-label"></label>
+            <input asp-for="DomainName" class="form-control" required />
+            <span asp-validation-for="DomainName" class="text-danger"></span>
+        </div>
+
+        <!-- Domain Registrar -->
+        <div class="mb-3">
+            <label asp-for="DomainRegistrar" class="form-label"></label>
+            <input asp-for="DomainRegistrar" class="form-control" required />
+            <span asp-validation-for="DomainRegistrar" class="text-danger"></span>
+        </div>
+
+        <!-- Dates -->
+        <div class="row mb-3">
+            <div class="col">
+                <label asp-for="RegisteredDate" class="form-label"></label>
+                <input asp-for="RegisteredDate" class="form-control" type="date" required />
+                <span asp-validation-for="RegisteredDate" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label asp-for="RenewalDate" class="form-label"></label>
+                <input asp-for="RenewalDate" class="form-control" type="date" required />
+                <span asp-validation-for="RenewalDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <!-- Auto Renew -->
+        <div class="mb-3">
+            <label asp-for="AutoRenew" class="form-label"></label>
+            <select asp-for="AutoRenew" class="form-select" required>
+                <option value="">Select</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <span asp-validation-for="AutoRenew" class="text-danger"></span>
+        </div>
+
+        <!-- Amount -->
+        <div class="mb-3">
+            <label asp-for="Amount" class="form-label"></label>
+            <input asp-for="Amount" class="form-control" type="number" step="0.01" required />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+
+        <!-- Nameservers -->
+        <div class="row mb-3">
+            <div class="col">
+                <label asp-for="DomainNameserver1" class="form-label"></label>
+                <input asp-for="DomainNameserver1" class="form-control" />
+                <span asp-validation-for="DomainNameserver1" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label asp-for="DomainNameserver2" class="form-label"></label>
+                <input asp-for="DomainNameserver2" class="form-control" />
+                <span asp-validation-for="DomainNameserver2" class="text-danger"></span>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

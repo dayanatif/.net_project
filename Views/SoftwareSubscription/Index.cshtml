@@ -1,0 +1,37 @@
+@model IEnumerable<SoftwareSubscriptionApp.Models.SoftwareSubscription>
+
+@{
+    ViewData["Title"] = "Software Subscriptions";
+}
+
+<h1>Software Subscriptions</h1>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Software Name</th>
+            <th>Category</th>
+            <th>Plan Type</th>
+            <th>Amount ($)</th>
+            <th>Email Subscribed</th>
+            <th>Subscribed Date</th>
+            <th>Renewal Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sub in Model)
+        {
+            <tr>
+                <td>@sub.Id</td>
+                <td>@sub.SoftwareName</td>
+                <td>@sub.Category</td>
+                <td>@sub.PlanType</td>
+                <td>@sub.Amount</td>
+                <td>@sub.EmailSubscribed</td>
+                <td>@sub.SubscribedDate.ToShortDateString()</td>
+                <td>@sub.RenewalDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

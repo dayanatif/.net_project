@@ -1,0 +1,39 @@
+@model IEnumerable<SoftwareSubscriptionApp.Models.DomainDetails>
+
+@{
+    ViewData["Title"] = "Domain Details";
+}
+
+<h1>Domain Details</h1>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Domain Name</th>
+            <th>Domain Registrar</th>
+            <th>Registered Date</th>
+            <th>Auto Renew</th>
+            <th>Renewal Date</th>
+            <th>Amount ($)</th>
+            <th>Nameserver 1</th>
+            <th>Nameserver 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var domain in Model)
+        {
+            <tr>
+                <td>@domain.Id</td>
+                <td>@domain.DomainName</td>
+                <td>@domain.DomainRegistrar</td>
+                <td>@domain.RegisteredDate.ToShortDateString()</td>
+                <td>@(domain.AutoRenew ? "Yes" : "No")</td>
+                <td>@domain.RenewalDate.ToShortDateString()</td>
+                <td>@domain.Amount</td>
+                <td>@domain.DomainNameserver1</td>
+                <td>@domain.DomainNameserver2</td>
+            </tr>
+        }
+    </tbody>
+</table>
