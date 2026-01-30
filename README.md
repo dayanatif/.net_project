@@ -50,5 +50,3 @@ Follow these steps to run the application locally:
      ```
      https://localhost:xxxx
      ```
-
----
