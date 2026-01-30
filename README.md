@@ -52,6 +52,3 @@ Follow these steps to run the application locally:
      ```
 
 ---
-
-* Adjust it for **Viva / instructor reading**
-* Align it with a **professional GitHub README style**
