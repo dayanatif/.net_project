@@ -1,4 +1,3 @@
-
 ---
 
 ## Setup & Run Instructions
@@ -14,7 +13,7 @@ Follow these steps to run the application locally:
 2. **Open the project**
 
    * Open the project folder in **Visual Studio**
-   * Make sure the correct `.csproj` file is loaded
+   * Ensure the correct `.csproj` file is loaded
 
 3. **Restore dependencies**
 
@@ -28,7 +27,7 @@ Follow these steps to run the application locally:
 4. **Configure the database**
 
    * Open `appsettings.json`
-   * Update the connection string according to your local SQL Server setup
+   * Update the database connection string according to your local setup
    * Apply migrations if required:
 
      ```bash
@@ -44,33 +43,15 @@ Follow these steps to run the application locally:
      dotnet run
      ```
 
-6. **Create the login table (first-time setup)**
+6. **Access the application**
 
-   * Install the EF Core tools if needed: `dotnet tool install --global dotnet-ef`
-   * Add and apply the migration for login users:
-
-     ```bash
-     dotnet ef migrations add AddAppUser
-     dotnet ef database update
-     ```
-
-   * Or create the `app_user` table manually in MySQL with columns: `Id` (int, PK, auto-increment), `UserName` (varchar), `PasswordHash` (varchar), `Role` (varchar).
-
-7. **Access the app**
-
-   * Open the browser and go to:
+   * Open a browser and navigate to:
 
      ```
      https://localhost:xxxx
      ```
 
-8. **Login**
-
-   * You will be redirected to the login page if not signed in.
-   * **Default accounts:**
-     * **Admin:** username `admin`, password `Admin@123` — can add, view, edit, and delete everything.
-     * **User:** username `user`, password `User@123` — can only view subscriptions, email users, and domains (no add/edit/delete).
-
 ---
 
-
+* Adjust it for **Viva / instructor reading**
+* Align it with a **professional GitHub README style**
