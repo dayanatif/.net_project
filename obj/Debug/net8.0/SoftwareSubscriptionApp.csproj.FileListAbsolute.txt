@@ -111,3 +111,4 @@ C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\refint\SoftwareSub
 C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\SoftwareSubscriptionApp.pdb
 C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\SoftwareSubscriptionApp.genruntimeconfig.cache
 C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\ref\SoftwareSubscriptionApp.dll
+C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\SoftwareSubscriptionApp.sourcelink.json
