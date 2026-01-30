@@ -44,13 +44,32 @@ Follow these steps to run the application locally:
      dotnet run
      ```
 
-6. **Access the app**
+6. **Create the login table (first-time setup)**
+
+   * Install the EF Core tools if needed: `dotnet tool install --global dotnet-ef`
+   * Add and apply the migration for login users:
+
+     ```bash
+     dotnet ef migrations add AddAppUser
+     dotnet ef database update
+     ```
+
+   * Or create the `app_user` table manually in MySQL with columns: `Id` (int, PK, auto-increment), `UserName` (varchar), `PasswordHash` (varchar), `Role` (varchar).
+
+7. **Access the app**
 
    * Open the browser and go to:
 
      ```
      https://localhost:xxxx
      ```
+
+8. **Login**
+
+   * You will be redirected to the login page if not signed in.
+   * **Default accounts:**
+     * **Admin:** username `admin`, password `Admin@123` — can add, view, edit, and delete everything.
+     * **User:** username `user`, password `User@123` — can only view subscriptions, email users, and domains (no add/edit/delete).
 
 ---
 

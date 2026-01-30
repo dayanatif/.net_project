@@ -1,0 +1,24 @@
+@model SoftwareSubscriptionApp.Models.SoftwareSubscription
+@{
+    ViewData["Title"] = "Delete Software Subscription";
+}
+
+<div class="container mt-5">
+    <h2>@ViewData["Title"]</h2>
+    <p class="text-danger">Are you sure you want to delete this subscription?</p>
+    <dl class="row">
+        <dt class="col-sm-3">Software Name</dt>
+        <dd class="col-sm-9">@Model.SoftwareName</dd>
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.Category</dd>
+        <dt class="col-sm-3">Plan Type</dt>
+        <dd class="col-sm-9">@Model.PlanType</dd>
+        <dt class="col-sm-3">Amount</dt>
+        <dd class="col-sm-9">@Model.Amount</dd>
+    </dl>
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

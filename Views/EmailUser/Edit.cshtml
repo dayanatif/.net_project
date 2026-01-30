@@ -1,0 +1,39 @@
+@model SoftwareSubscriptionApp.Models.EmailUser
+@{
+    ViewData["Title"] = "Edit Email User";
+}
+
+<div class="container mt-5">
+    <h2>@ViewData["Title"]</h2>
+    <form asp-action="Edit" method="post" class="needs-validation" novalidate>
+        <input type="hidden" asp-for="Id" />
+        <div class="row mb-3">
+            <div class="col">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" required>
+            </div>
+            <div class="col">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Company" class="form-label"></label>
+            <input asp-for="Company" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label asp-for="StorageGB" class="form-label"></label>
+            <input asp-for="StorageGB" class="form-control" type="number">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-control" type="password" placeholder="Leave blank to keep current">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

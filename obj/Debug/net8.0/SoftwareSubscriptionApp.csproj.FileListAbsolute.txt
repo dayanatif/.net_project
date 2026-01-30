@@ -112,3 +112,4 @@ C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\SoftwareSubscripti
 C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\SoftwareSubscriptionApp.genruntimeconfig.cache
 C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\ref\SoftwareSubscriptionApp.dll
 C:\Users\HP Pavilion\SoftwareSubscriptionApp\obj\Debug\net8.0\SoftwareSubscriptionApp.sourcelink.json
+C:\Users\HP Pavilion\SoftwareSubscriptionApp\bin\Debug\net8.0\BCrypt.Net-Next.dll
