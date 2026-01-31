@@ -18,7 +18,7 @@ namespace SoftwareSubscriptionApp.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Explicit table mappings
+            
             modelBuilder.Entity<SoftwareSubscription>().ToTable("software_subscription");
             modelBuilder.Entity<EmailUser>().ToTable("email_user");
             modelBuilder.Entity<DomainDetails>().ToTable("domain_details");
