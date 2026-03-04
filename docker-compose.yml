@@ -32,6 +32,7 @@ services:
         condition: service_healthy
     networks:
       - appnet
+      - traefik_default
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.app.rule=Host(`dayan3.devtscape.org`)"
@@ -42,38 +43,12 @@ services:
       # - "traefik.http.routers.app.tls=true"
       # - "traefik.http.routers.app.tls.certresolver=letsencrypt"
 
-  traefik:
-    image: traefik:v3.0
-    container_name: software_subscription_traefik
-    command:
-      - "--api.dashboard=false"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
-      # Uncomment for Let's Encrypt:
-      # - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
-      # - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
-      # - "--certificatesresolvers.letsencrypt.acme.email=raodayanatif@gmail.com"
-      # - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
-      # - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
-      # - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      # For Let's Encrypt persistence:
-      # - traefik_certs:/letsencrypt
-    depends_on:
-      - app
-    networks:
-      - appnet
-
 volumes:
   mysql_data:
-  # traefik_certs:  # Uncomment for Let's Encrypt
 
 networks:
   appnet:
     driver: bridge
+  # Must match the network used by your existing Traefik. Check with: docker network ls
+  traefik_default:
+    external: true
