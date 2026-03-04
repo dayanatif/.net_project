@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using SoftwareSubscriptionApp.Data;
 using SoftwareSubscriptionApp.Models;
@@ -31,12 +32,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-// Seed default admin and user if no users exist
+// Forward proxy headers (nginx, load balancer)
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+// Ensure DB and tables exist, then seed default admin/user
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     try
     {
+        context.Database.EnsureCreated();
         if (!context.AppUsers.Any())
         {
             context.AppUsers.Add(new AppUser
