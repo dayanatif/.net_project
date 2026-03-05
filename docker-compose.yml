@@ -16,6 +16,17 @@ services:
     networks:
       - traefik
 
+  phpmyadmin:
+  image: phpmyadmin
+  container_name: phpmyadmin
+  restart: always
+  ports:
+    - "8081:80"  # Open in browser at localhost:8081
+  environment:
+    PMA_HOST: software_subscription_mysql  # Docker MySQL container
+    PMA_PORT: 3306
+  networks:
+    - traefik
 
   app:
     build: .
