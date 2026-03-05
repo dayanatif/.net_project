@@ -36,6 +36,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.app.rule=Host(`dayan3.devtscape.org`)"
       - "traefik.http.routers.app.entrypoints=web"
+      - "traefik.http.routers.app.service=app"
       - "traefik.http.services.app.loadbalancer.server.port=8080"
       # Uncomment for HTTPS with Let's Encrypt:
       # - "traefik.http.routers.app.entrypoints=websecure"
