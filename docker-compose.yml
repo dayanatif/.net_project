@@ -11,6 +11,8 @@ services:
       MYSQL_PASSWORD: AppPass123
     volumes:
       - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
     networks:
       - traefik
 
